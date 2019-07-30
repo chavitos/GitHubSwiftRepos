@@ -16,7 +16,7 @@ struct RepositoryList: Decodable, CustomStringConvertible {
 	
 	enum CodingKeys:String,CodingKey{
 		
-		case total = "total_count"
+		case total = "totalCount"
 		case items
 		case message
 	}

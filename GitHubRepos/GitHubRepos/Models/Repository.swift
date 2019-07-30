@@ -20,7 +20,7 @@ struct Repository:Codable, CustomStringConvertible {
 		
 		case name
 		case owner
-		case stars 	= "stargazers_count"
+		case stars 	= "stargazersCount"
 	}
 	
 	var description: String {

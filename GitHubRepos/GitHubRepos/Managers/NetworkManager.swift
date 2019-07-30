@@ -97,13 +97,6 @@ enum GitHubReposRequests: URLRequestConvertible {
         }
     }
     
-    var isJsonEnconding:Bool{
-        switch self {
-        case  .getRepositories:
-            return true
-        }
-    }
-    
     public func asURLRequest() throws -> URLRequest {
         
         let url = try baseURL.asURL()
@@ -116,11 +109,7 @@ enum GitHubReposRequests: URLRequestConvertible {
         }
         
         request.timeoutInterval = TimeInterval(10 * 1000)
-        
-        if isJsonEnconding{
-            return try JSONEncoding.default.encode(request, with: parameters)
-        }
-        
+
         return try URLEncoding.default.encode(request, with: parameters)
     }
 }

@@ -16,7 +16,7 @@ struct Owner: Codable, CustomStringConvertible {
 	enum CodingKeys:String,CodingKey{
 		
 		case name 		= "login"
-		case photoUrl 	= "avatar_url"
+		case photoUrl 	= "avatarUrl"
 	}
 	
 	var description: String {
