@@ -27,6 +27,13 @@ class RepositoryTableViewCell: UITableViewCell {
 
 	func config(withRepository repository:Repository) {
 		
+		repositoryNameLabel.text = repository.name ?? "-"
+		repositoryStarsLabel.text = "⭐️ \(repository.stars ?? 0)"
+		repositoryOwnerLabel.text = "a repository of \(repository.owner?.name ?? "no one")"
 		
+		if let photoUrl = repository.owner?.photoUrl {
+			
+			photo.setImage(withUrl: photoUrl)
+		}
 	}
 }

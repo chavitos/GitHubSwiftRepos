@@ -13,14 +13,15 @@
         <!--Swift Repos-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GitHubRepos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RepositoryListViewController" customModule="GitHubRepos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="hDV-ZL-2f8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="125" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="hDV-ZL-2f8">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="1Ti-Ob-Cyc">
                                     <rect key="frame" x="0.0" y="126" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -30,12 +31,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoryCell" rowHeight="125" id="yHn-9K-7Rm" customClass="RepositoryTableViewCell" customModule="GitHubRepos" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yHn-9K-7Rm" id="Mbf-MC-z47">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yHn-9K-7Rm" id="Mbf-MC-z47">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="124.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dCu-mm-2Sb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="124.66666666666667"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dCu-mm-2Sb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="125" id="JNJ-VY-7oZ"/>
                                                     </constraints>
@@ -47,7 +48,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a repository of vsouza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMh-1k-Shq">
-                                                    <rect key="frame" x="133" y="96.333333333333329" width="160.33333333333337" height="20.333333333333329"/>
+                                                    <rect key="frame" x="133" y="96.666666666666671" width="160.33333333333337" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -66,7 +67,6 @@
                                                 <constraint firstItem="dCu-mm-2Sb" firstAttribute="top" secondItem="Mbf-MC-z47" secondAttribute="top" id="AuX-ci-mkA"/>
                                                 <constraint firstItem="dCu-mm-2Sb" firstAttribute="leading" secondItem="Mbf-MC-z47" secondAttribute="leading" id="KDB-wA-QOA"/>
                                                 <constraint firstItem="zAr-eU-2qR" firstAttribute="top" secondItem="Mbf-MC-z47" secondAttribute="top" constant="8" id="MDs-XI-ewP"/>
-                                                <constraint firstAttribute="trailing" secondItem="dCu-mm-2Sb" secondAttribute="trailing" constant="20" symbolic="YES" id="UHc-GE-hyk"/>
                                                 <constraint firstAttribute="bottom" secondItem="YMh-1k-Shq" secondAttribute="bottom" constant="8" id="XWu-tk-QLF"/>
                                                 <constraint firstItem="z8a-Lj-1qz" firstAttribute="leading" secondItem="dCu-mm-2Sb" secondAttribute="trailing" constant="8" id="fmt-ng-qJG"/>
                                                 <constraint firstAttribute="bottom" secondItem="dCu-mm-2Sb" secondAttribute="bottom" id="rqs-fd-9NR"/>
@@ -80,6 +80,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="l4g-Dj-yBQ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vK8-Ga-536"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -92,6 +96,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Swift Repos" id="IN6-Xw-lJs"/>
+                    <connections>
+                        <outlet property="tableView" destination="hDV-ZL-2f8" id="Nki-mC-5iV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
