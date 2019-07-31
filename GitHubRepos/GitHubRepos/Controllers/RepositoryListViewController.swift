@@ -18,8 +18,10 @@ class RepositoryListViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView!
 	
+	private let refreshControl = UIRefreshControl()
 	var repositories:[Repository] = []
-	var nextPage:Int = 0
+	var nextPage:Int = 1
+	var total:Int = 0
 	var state:AppState = .done {
 		
 		willSet(newValue) {
@@ -37,17 +39,47 @@ class RepositoryListViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		config()
+		getRepositories()
+	}
+	
+	private func config() {
+		
+		if #available(iOS 10.0, *) {
+			tableView.refreshControl = refreshControl
+		} else {
+			tableView.addSubview(refreshControl)
+		}
+		
+		refreshControl.addTarget(self, action: #selector(refreshRepositories), for: .valueChanged)
+		refreshControl.attributedTitle = NSAttributedString(string: "Refreshing repositories ...", attributes:nil)
+	}
+	
+	@objc private func refreshRepositories() {
+		
+		state = .refreshing
+		nextPage = 1
+		
 		getRepositories()
 	}
 	
 	private func getRepositories() {
 		
-		state = .fetching
+		if state == .done {
+			state = .fetching
+		}
+		
 		RepositoryListNetworkWorker().getRepositories(usingQuery: .language(language: .swift), sotedBy: .stars, inPage: nextPage) { (result, error) in
 			
 			if error == nil, let result = result, let repositories = result.items, repositories.count > 0 {
 				
-				self.repositories += repositories
+				if self.state == .fetching {
+					self.repositories += repositories
+				}else{
+					self.repositories = repositories
+				}
+				self.nextPage += 1
+				self.total = result.total ?? 0
 			}else{
 				
 				if let error = error {
@@ -60,6 +92,7 @@ class RepositoryListViewController: UIViewController {
 					self.present(alert, animated: true)
 				}
 			}
+			self.refreshControl.endRefreshing()
 			self.state = .done
 		}
 	}
@@ -83,5 +116,22 @@ extension RepositoryListViewController:UITableViewDelegate, UITableViewDataSourc
 		}
 		
 		return UITableViewCell()
+	}
+	
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		
+		let offsetY = scrollView.contentOffset.y
+		let contentHeight = scrollView.contentSize.height
+		
+		if state == .done {
+			
+			if offsetY > contentHeight - scrollView.frame.height {
+				
+				if GitHubReposRequests.per_page * nextPage < total {
+					
+					getRepositories()
+				}
+			}
+		}
 	}
 }

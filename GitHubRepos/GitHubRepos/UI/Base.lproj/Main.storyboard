@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Swift Repos-->
+        <!--Swift Repositories-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RepositoryListViewController" customModule="GitHubRepos" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,7 +95,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Swift Repos" id="IN6-Xw-lJs"/>
+                    <navigationItem key="navigationItem" title="Swift Repositories" id="IN6-Xw-lJs"/>
                     <connections>
                         <outlet property="tableView" destination="hDV-ZL-2f8" id="Nki-mC-5iV"/>
                     </connections>
