@@ -7,7 +7,6 @@ target 'GitHubRepos' do
 
   # Pods for GitHubRepos
   pod 'Alamofire', '4.7.3'
-  pod 'Cartography'
 
   target 'GitHubReposTests' do
     inherit! :search_paths

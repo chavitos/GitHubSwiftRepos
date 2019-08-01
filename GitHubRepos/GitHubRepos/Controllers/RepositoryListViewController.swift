@@ -69,7 +69,9 @@ class RepositoryListViewController: UIViewController {
 			state = .fetching
 		}
 		
-		RepositoryListNetworkWorker().getRepositories(usingQuery: .language(language: .swift), sotedBy: .stars, inPage: nextPage) { (result, error) in
+		let repositoryWorker = RepositoryListWorker(worker: RepositoryListNetworkWorker())
+		
+		repositoryWorker.getRepositories(usingQuery: .language(language: .swift), sotedBy: .stars, inPage: nextPage) { (result, error) in
 			
 			if error == nil, let result = result, let repositories = result.items, repositories.count > 0 {
 				

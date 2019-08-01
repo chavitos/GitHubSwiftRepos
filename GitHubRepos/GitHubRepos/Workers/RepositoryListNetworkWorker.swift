@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RepositoryListNetworkWorker {
+class RepositoryListNetworkWorker:RepositoryListWorkerProtocol {
 	
 	func getRepositories(usingQuery query:Query, sotedBy sort:Sort, orderedBy order:Order = .desc, inPage page:Int, completion: @escaping ((RepositoryList?,RepositoryListErrors?) -> Void)) {
 		
